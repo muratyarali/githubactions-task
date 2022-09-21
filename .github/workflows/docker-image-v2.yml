@@ -2,10 +2,8 @@ name: ci
 
 on:
   push:
-    branches:
-      - 'main'
-    tags:
-      - 'v*'
+    paths:
+      - 'part1-src/**'
 
 jobs:
   build-hello-app:
@@ -45,7 +43,6 @@ jobs:
         uses: docker-practice/actions-setup-docker@master
       - run: |
           docker run -d --name hello-app ${{ env.IMG_NAME }}:latest
-          docker container ls
 
 
   build-welcome-app:
@@ -85,4 +82,3 @@ jobs:
         uses: docker-practice/actions-setup-docker@master
       - run: |
           docker run -d --name welcome-app ${{ env.IMG_NAME }}:latest
-          docker ps -a
