@@ -34,6 +34,15 @@ jobs:
           push: true
           tags: ${{ env.IMG_NAME }}:v1.0.0, ${{ env.IMG_NAME }}:latest
 
+      - name: Install Docker      
+      - uses: docker-practice/actions-setup-docker@master
+      - run: |
+          set -x
+
+          docker version
+
+          docker run --rm hello-world
+
       - name: Run the build process with Docker
         uses: addnab/docker-run-action@v3
         with:
