@@ -37,12 +37,15 @@ jobs:
       - name: Run the build process with Docker
         uses: addnab/docker-run-action@v3
         with:
-            image: ${{ env.IMG_NAME }}:latest
+            username: ${{ secrets.DOCKER_HUB_USERNAME }}
+            password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+            image: docker.io/${{ env.IMG_NAME }}:latest
             options: -v ${{ github.workspace }}:/var/www
             run: |
                 # docker ps -a
-                docker --version
+                #docker --version
                 #docker run -d --name hello-app ${{ env.IMG_NAME }}:latest
+
 
   build-welcome-app:
     runs-on: ubuntu-latest
@@ -73,9 +76,11 @@ jobs:
       - name: Run the build process with Docker
         uses: addnab/docker-run-action@v3
         with:
-            image: ${{ env.IMG_NAME }}:latest
+            username: ${{ secrets.DOCKER_HUB_USERNAME }}
+            password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+            image: docker.io/${{ env.IMG_NAME }}:latest
             options: -v ${{ github.workspace }}:/var/www
             run: |
                 # docker ps -a
-                docker --version
+                #ocker --version
                 # docker run -d --name welcome-app ${{ env.IMG_NAME }}:latest
