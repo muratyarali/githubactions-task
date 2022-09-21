@@ -34,26 +34,18 @@ jobs:
           push: true
           tags: ${{ env.IMG_NAME }}:v1.0.0, ${{ env.IMG_NAME }}:latest
 
-      - name: Run the build process with Docker
+      - name: Pull Docker Image
         uses: addnab/docker-run-action@v3
         with:
             username: ${{ secrets.DOCKER_HUB_USERNAME }}
             password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
             image: docker.io/${{ env.IMG_NAME }}:latest
-            options: -v ${{ github.workspace }}:/var/www
-            # run: |
-            #     docker version
-            #     docker ps -a
-            #     docker images
-            #     #docker run -d --name hello-app ${{ env.IMG_NAME }}:latest
 
       - name: Install and Run Docker      
         uses: docker-practice/actions-setup-docker@master
       - run: |
-          docker version
-          docker ps -a
-          docker images
           docker run -d --name hello-app ${{ env.IMG_NAME }}:latest
+          docker container ls
 
 
   build-welcome-app:
@@ -82,14 +74,15 @@ jobs:
           push: true
           tags: ${{ env.IMG_NAME }}:v1.0.0, ${{ env.IMG_NAME }}:latest
 
-      - name: Run the build process with Docker
+      - name: Pull Docker Image
         uses: addnab/docker-run-action@v3
         with:
             username: ${{ secrets.DOCKER_HUB_USERNAME }}
             password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
             image: docker.io/${{ env.IMG_NAME }}:latest
-            options: -v ${{ github.workspace }}:/var/www
-            run: |
-                # docker ps -a
-                #ocker --version
-                # docker run -d --name welcome-app ${{ env.IMG_NAME }}:latest
+
+      - name: Install Docker and Run Container
+        uses: docker-practice/actions-setup-docker@master
+      - run: |
+          docker run -d --name welcome-app ${{ env.IMG_NAME }}:latest
+          docker ps -a
