@@ -41,6 +41,7 @@ jobs:
             options: -v ${{ github.workspace }}:/var/www
             run: |
                 echo "hello world"
+                ls -al
 
   build-welcome-app:
     runs-on: ubuntu-latest
@@ -76,4 +77,5 @@ jobs:
             run: |
                 # docker ps -a
                 echo "hello world"
+                ls -al
                 # docker run -d --name welcome-app ${{ env.IMG_NAME }}:latest
