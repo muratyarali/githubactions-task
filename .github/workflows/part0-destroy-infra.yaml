@@ -1,0 +1,18 @@
+name: Cleanup
+
+on:
+  workflow_dispatch:
+
+jobs:
+  destroy_workspace:
+    runs-on: ubuntu-latest
+    name: Destroy terraform workspace
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: terraform destroy
+        uses: dflook/terraform-destroy@v1
+        with:
+          path: part2-infra-detailed/
+          workspace: ${{ github.head_ref }}
