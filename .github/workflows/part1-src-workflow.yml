@@ -42,7 +42,7 @@ jobs:
       - name: Install and Run Docker      
         uses: docker-practice/actions-setup-docker@master
       - run: |
-          docker run -d --name hello-app ${{ env.IMG_NAME }}:latest
+          docker run --name hello-app ${{ env.IMG_NAME }}:latest
 
 
   build-welcome-app:
@@ -81,4 +81,4 @@ jobs:
       - name: Install Docker and Run Container
         uses: docker-practice/actions-setup-docker@master
       - run: |
-          docker run -d --name welcome-app ${{ env.IMG_NAME }}:latest
+          docker run --name welcome-app ${{ env.IMG_NAME }}:latest
