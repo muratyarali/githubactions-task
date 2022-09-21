@@ -30,4 +30,3 @@ jobs:
         uses: dflook/terraform-destroy@v1
         with:
           path: part2-infra-detailed/
-          workspace: ${{ github.head_ref }}
