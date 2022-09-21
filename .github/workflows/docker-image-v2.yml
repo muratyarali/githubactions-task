@@ -40,4 +40,4 @@ jobs:
             image: ${{ env.IMG_NAME }}:latest
             options: -v ${{ github.workspace }}:/var/www
             run: |
-                python ./hello.py
+                python ./part1-src/hello-world/hello.py
