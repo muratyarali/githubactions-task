@@ -21,6 +21,11 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
+      - name: Terraform Init
+        working-directory: part2-infra-detailed/
+        run: |
+          terraform init
+
       - name: terraform destroy
         uses: dflook/terraform-destroy@v1
         with:
