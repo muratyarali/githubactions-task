@@ -35,8 +35,8 @@ jobs:
           tags: ${{ env.IMG_NAME }}:v1.0.0, ${{ env.IMG_NAME }}:latest
 
       - name: Install Docker      
-      - uses: docker-practice/actions-setup-docker@master
-      - run: |
+        uses: docker-practice/actions-setup-docker@master
+        run: |
           set -x
 
           docker version
