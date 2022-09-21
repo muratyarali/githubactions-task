@@ -36,12 +36,9 @@ jobs:
 
       - name: Install Docker      
         uses: docker-practice/actions-setup-docker@master
-        run: |
-          set -x
-
+        
+      - run: |
           docker version
-
-          docker run --rm hello-world
 
       - name: Run the build process with Docker
         uses: addnab/docker-run-action@v3
