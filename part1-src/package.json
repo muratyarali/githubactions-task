@@ -1,0 +1,9 @@
+{
+  "name": "hello",                                                  # Name of your application
+  "version": "0.0.0",                                               # Version should be 0.0.0 intially
+  "repository": {
+    "type": "git",                                                  # Repository type
+    "url": "git+https://github.com/muratyarali/githubactions.git"   # URL of Git Repository
+  }, 
+  "homepage": "https://github.com/muratyarali/githubactions#readme" # Points to the readme of the GitHub repository
+  }

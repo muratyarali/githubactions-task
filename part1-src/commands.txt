@@ -1,0 +1,9 @@
+docker build -t "muratyarali/githubactions:1.0.1" .
+docker run -d -p 80 --name hello muratyarali/githubactions:1.0.0
+docker login -u username -p password
+docker push muratyarali/githubactions:1.0.0
+
+github.ref : he branch or tag ref that triggered the workflow run. For workflows triggered by push, this is the branch or tag ref that was pushed.This is only set if a branch or tag is available for the event type. For tags it is refs/tags/<tag_name>. For example, refs/tags/v1.0.1.
+
+ git tag -a v1.0.2
+ git push origin v1.0.2
