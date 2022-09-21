@@ -12,7 +12,7 @@ jobs:
       IMG_NAME: muratyarali/githubactions-hello-app
 
     steps:
-      - name: Checkout 
+      - name: Checkout
         uses: actions/checkout@v2 # Required to mount the Github Workspace to a volume
 
       - name: Login to Docker Hub
