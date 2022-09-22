@@ -1,7 +1,7 @@
 name: Manually Triggered Cleanup
 
 on:
-  workflow_dispatch:
+  workflow_dispatch
 
 env:
   BUCKET_NAME: terraform-state-devops-nax
