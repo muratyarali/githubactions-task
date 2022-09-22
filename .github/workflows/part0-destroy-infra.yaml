@@ -6,6 +6,10 @@ on:
 env:
   BUCKET_NAME: terraform-state-devops-nax
 
+defaults:
+  run:
+    working-directory: ./part2-infra-detailed/
+
 jobs:
   destroy_workspace:
     runs-on: ubuntu-latest
