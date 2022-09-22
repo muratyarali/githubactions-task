@@ -1,5 +1,5 @@
 ############################
-# PROVIDER
+# PROVIDERR
 ############################
 
 terraform {
@@ -11,7 +11,7 @@ terraform {
     dynamodb_table = "terraform-up-and-running-locks"
     encrypt        = true
   }
-  
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
