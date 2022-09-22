@@ -4,7 +4,7 @@ on:
   workflow_dispatch
 
 env:
-  BUCKET_NAME: terraform-state-devops-nax
+  BUCKET_NAME: terraform-up-and-running-state-nax
 
 defaults:
   run:
@@ -29,16 +29,13 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        # working-directory: part2-infra-detailed/
         run: terraform init
 
       - name: Show Destroy plan
-        # working-directory: part2-infra-detailed/
         run: terraform plan -destroy
         continue-on-error: true
 
       - name: Destroy resources jobs
-        # working-directory: part2-infra-detailed/
         id: destroy
         run: terraform destroy -auto-approve
 

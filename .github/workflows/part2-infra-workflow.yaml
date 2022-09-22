@@ -8,6 +8,10 @@ on:
 env:
   BUCKET_NAME: terraform-up-and-running-state-nax
 
+defaults:
+  run:
+    working-directory: ./part2-infra-detailed/
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,22 +30,17 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        working-directory: part2-infra-detailed/
         run: terraform init
 
       - name: Terraform Format
-        working-directory: part2-infra-detailed/
         run: terraform fmt
 
       - name: Terraform Validate
-        working-directory: part2-infra-detailed/
         run: terraform validate
 
       - name: Terraform Plan
-        working-directory: part2-infra-detailed/
         run: terraform plan
 
       - name: Terraform Apply
         id: apply
-        working-directory: part2-infra-detailed/
         run: terraform apply -auto-approve
