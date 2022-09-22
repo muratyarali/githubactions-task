@@ -4,10 +4,14 @@
 
 terraform {
   backend "s3" {
-    bucket = "terraform-state-devops-nax"
-    key    = "terraform.tfstate"
+    bucket = "terraform-up-and-running-state-nax"
+    key    = "global/s3/terraform.tfstate"
     region = "us-east-1"
+
+    dynamodb_table = "terraform-up-and-running-locks"
+    encrypt        = true
   }
+  
   required_providers {
     aws = {
       source  = "hashicorp/aws"

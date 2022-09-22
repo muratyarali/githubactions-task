@@ -6,7 +6,7 @@ on:
       - 'part2-infra-detailed/**'
 
 env:
-  BUCKET_NAME: terraform-state-devops-nax
+  BUCKET_NAME: terraform-up-and-running-state-nax
 
 jobs:
   build:
@@ -39,7 +39,7 @@ jobs:
 
       - name: AWS Plan Copy
         id: copyfrom
-        run: aws s3 cp s3://${BUCKET_NAME}/terraform.tfstate part2-infra-detailed/terraform.tfstate
+        run: aws s3 cp s3://${BUCKET_NAME}/yourapp-${{ env.ENVIRONMENT }}.tfstate part2-infra-detailed/yourapp-${{ env.ENVIRONMENT }}.tfstate
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -57,7 +57,7 @@ jobs:
 
       - name: AWS Plan Copy
         if: github.event_name == 'push' && steps.apply.outcome == 'success'
-        run: aws s3 cp part2-infra-detailed/terraform.tfstate s3://${BUCKET_NAME}/terraform.tfstate
+        run: aws s3 cp part2-infra-detailed/terraform.tfstate s3://${BUCKET_NAME}/yourapp-${{ env.ENVIRONMENT }}.tfstate
         id: copy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
