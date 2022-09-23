@@ -33,7 +33,7 @@ jobs:
           context: .
           file: ./part1-src/hello-world/Dockerfile
           push: true
-          tags: ${{ env.IMG_NAME }}:v1.0.0, ${{ env.IMG_NAME }}:latest
+          tags: ${{ env.IMG_NAME }}:v1.0.1, ${{ env.IMG_NAME }}:latest
 
       - name: Pull Docker Image
         uses: addnab/docker-run-action@v3
@@ -72,7 +72,7 @@ jobs:
           context: .
           file: ./part1-src/welcome-nax/Dockerfile
           push: true
-          tags: ${{ env.IMG_NAME }}:v1.0.0, ${{ env.IMG_NAME }}:latest
+          tags: ${{ env.IMG_NAME }}:v1.0.1, ${{ env.IMG_NAME }}:latest
 
       - name: Pull Docker Image
         uses: addnab/docker-run-action@v3
