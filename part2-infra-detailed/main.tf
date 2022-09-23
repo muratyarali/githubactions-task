@@ -4,7 +4,7 @@
 
 terraform {
   backend "s3" {
-    bucket = "terraform-up-and-running-state-nax"
+    bucket = "terraform-up-and-running-state-nax"    # This backend automatically push and pull terraform.tfstate file into s3 bucket
     key    = "global/s3/terraform.tfstate"
     region = "us-east-1"
 

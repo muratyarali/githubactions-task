@@ -3,4 +3,4 @@ RUN pip install flask
 COPY . /app
 WORKDIR /app
 EXPOSE 80
-CMD python ./welcome.py
+CMD python3 ./welcome.py
