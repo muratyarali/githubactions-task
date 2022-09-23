@@ -35,17 +35,17 @@ jobs:
           push: true
           tags: ${{ env.IMG_NAME }}:v1.0.1, ${{ env.IMG_NAME }}:latest
 
-      - name: Pull Docker Image
-        uses: addnab/docker-run-action@v3
-        with:
-            username: ${{ secrets.DOCKER_HUB_USERNAME }}
-            password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-            image: docker.io/${{ env.IMG_NAME }}:latest
+      # - name: Pull Docker Image
+      #   uses: addnab/docker-run-action@v3
+      #   with:
+      #       username: ${{ secrets.DOCKER_HUB_USERNAME }}
+      #       password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      #       image: docker.io/${{ env.IMG_NAME }}:latest
 
-      - name: Install and Run Docker      
-        uses: docker-practice/actions-setup-docker@master
-      - run: |
-          docker run --name hello-app ${{ env.IMG_NAME }}:latest
+      # - name: Install and Run Docker      
+      #   uses: docker-practice/actions-setup-docker@master
+      # - run: |
+      #     docker run --name hello-app ${{ env.IMG_NAME }}:latest
 
 
   build-welcome-app:
@@ -74,14 +74,14 @@ jobs:
           push: true
           tags: ${{ env.IMG_NAME }}:v1.0.1, ${{ env.IMG_NAME }}:latest
 
-      - name: Pull Docker Image
-        uses: addnab/docker-run-action@v3
-        with:
-            username: ${{ secrets.DOCKER_HUB_USERNAME }}
-            password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-            image: docker.io/${{ env.IMG_NAME }}:latest
+      # - name: Pull Docker Image
+      #   uses: addnab/docker-run-action@v3
+      #   with:
+      #       username: ${{ secrets.DOCKER_HUB_USERNAME }}
+      #       password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      #       image: docker.io/${{ env.IMG_NAME }}:latest
 
-      - name: Install Docker and Run Container
-        uses: docker-practice/actions-setup-docker@master
-      - run: |
-          docker run --name welcome-app ${{ env.IMG_NAME }}:latest
+      # - name: Install Docker and Run Container
+      #   uses: docker-practice/actions-setup-docker@master
+      # - run: |
+      #     docker run --name welcome-app ${{ env.IMG_NAME }}:latest
