@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: welcome-nax
+spec:
+  selector:
+    matchLabels:
+      name: welcome-nax
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: welcome-nax
+    spec:
+      containers:
+      - name: welcome-nax
+        image: muratyarali/githubactions-welcome-app:latest
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 100m
+          requests:
+            cpu: 80m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: welcome-nax-service
+  labels:
+    name: welcome-nax
+spec:
+  ports:
+  - port: 3000
+    targetPort: 80
+  selector:
+    name: welcome-nax 	
+  type: ClusterIP

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world
+spec:
+  selector:
+    matchLabels:
+      name: hello-world
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: hello-world
+    spec:
+      containers:
+      - name: hello-world
+        image: muratyarali/githubactions-hello-app:latest
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 100m
+          requests:
+            cpu: 80m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-service
+  labels:
+    name: hello-world
+spec:
+  ports:
+  - port: 80
+  selector:
+    name: hello-world 	
+  type: ClusterIP
