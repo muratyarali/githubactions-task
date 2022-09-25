@@ -2,7 +2,7 @@ name: Deploy to EKS CLuster
 
 on:
   workflow_run:
-    workflows: [Create Images and Deploy]
+    workflows: [Create Images]
     types:
       - completed
   push:
