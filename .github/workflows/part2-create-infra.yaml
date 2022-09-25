@@ -1,15 +1,13 @@
 name: Create-Infra
 
-# on:
+on:
 #   push:
 #     paths:
 #       - 'part2-infra-detailed/**'
-
-on:
-  workflow_dispatch
+  workflow_dispatch:
 
 env:
-  BUCKET_NAME: terraform-up-and-running-state-nax
+  BUCKET_NAME: terraform-up-and-running-state-nax   # It has to be same with bucket name in /part2-infra-detailed/backent-tf/main.tf
 
 defaults:
   run:

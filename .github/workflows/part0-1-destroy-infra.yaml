@@ -1,7 +1,7 @@
 name: Destroy Cluster
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
 
 env:
   BUCKET_NAME: terraform-up-and-running-state-nax

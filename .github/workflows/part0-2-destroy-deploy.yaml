@@ -1,4 +1,4 @@
-name: Create Images and Deploy
+name: Destroy Deployment
 
 on:
   workflow_dispatch:
