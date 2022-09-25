@@ -1,14 +1,14 @@
 name: Create Images
 
 on:
-  # push:
-  #   paths:
-  #     - 'part1-src/**'
-  #   branches:
-  #     - main
-  # pull_request:
-  #   branches:
-  #     - main
+  push:
+    paths:
+      - 'part1-src/**'
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 env:
