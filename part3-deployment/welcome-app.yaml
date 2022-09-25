@@ -15,6 +15,7 @@ spec:
       containers:
       - name: welcome-nax
         image: muratyarali/githubactions-welcome-app:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         resources:

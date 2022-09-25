@@ -15,6 +15,7 @@ spec:
       containers:
       - name: hello-world
         image: muratyarali/githubactions-hello-app:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         resources:
