@@ -102,5 +102,5 @@ jobs:
         run: |
           # kubectl apply -f part3-deployment/aws-auth.yaml
           kubectl apply -f part3-deployment/hello-app.yaml
-          kubectl apply -f part3-deployment/hello-app.yaml
+          kubectl apply -f part3-deployment/welcome-app.yaml
           kubectl apply -f part3-deployment/ingress-service.yaml
