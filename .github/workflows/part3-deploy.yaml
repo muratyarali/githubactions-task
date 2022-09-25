@@ -49,11 +49,12 @@ jobs:
         run: aws eks update-kubeconfig --name ${{ env.CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
 
       - name: Install ingress-controller
-        run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
+        run: |
+          kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
+          sleep 120
 
       - name: Deploy Image to Amazon EKS
         run: |
           kubectl apply -f part3-deployment/hello-app.yaml
           kubectl apply -f part3-deployment/welcome-app.yaml
-          sleep 10
           kubectl apply -f part3-deployment/ingress-service.yaml

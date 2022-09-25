@@ -41,7 +41,8 @@ jobs:
           kubectl delete -f part3-deployment/hello-app.yaml
           kubectl delete -f part3-deployment/welcome-app.yaml
           kubectl delete -f part3-deployment/ingress-service.yaml
-          sleep 20
           
       - name: Delete ingress-controller
-        run: kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
+        run: |
+          kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
+          sleep 120
