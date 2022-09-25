@@ -1,4 +1,4 @@
-name: Manually Triggered Cleanup
+name: Destroy Cluster
 
 on:
   workflow_dispatch
