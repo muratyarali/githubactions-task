@@ -1,0 +1,43 @@
+name: Create Images and Deploy
+
+on:
+  workflow_dispatch:
+
+env:
+  CLUSTER_NAME: devopsthehardway-cluster   # It has to be same with aws_eks_cluster name in /part2-infra-detailed/main.tf
+
+jobs:
+  deploy-eks-cluster:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout 
+        uses: actions/checkout@v2 # Required to mount the Github Workspace to a volume
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Install Kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.25.2' # default is latest stable (find latest stable version on storage.googleapis.com/kubernetes-releases/release/stable.txt)
+        id: install
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Update kube config
+        run: aws eks update-kubeconfig --name ${{ env.CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
+
+      - name: Deploy Image to Amazon EKS
+        run: |
+          kubectl delete -f part3-deployment/hello-app.yaml
+          kubectl delete -f part3-deployment/welcome-app.yaml
+          kubectl delete -f part3-deployment/ingress-service.yaml
