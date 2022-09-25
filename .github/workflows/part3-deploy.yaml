@@ -48,6 +48,9 @@ jobs:
       - name: Update kube config
         run: aws eks update-kubeconfig --name ${{ env.CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
 
+      - name: Install ingress-controller
+        run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
+
       - name: Deploy Image to Amazon EKS
         run: |
           kubectl apply -f part3-deployment/hello-app.yaml
