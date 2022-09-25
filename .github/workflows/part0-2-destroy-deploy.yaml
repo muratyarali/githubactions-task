@@ -36,7 +36,7 @@ jobs:
       - name: Update kube config
         run: aws eks update-kubeconfig --name ${{ env.CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
 
-      - name: Deploy Image to Amazon EKS
+      - name: Destroy Deployment
         run: |
           kubectl delete -f part3-deployment/hello-app.yaml
           kubectl delete -f part3-deployment/welcome-app.yaml

@@ -1,4 +1,4 @@
-name: Create Images and Deploy
+name: Deploy to EKS CLuster
 
 on:
   # workflow_run:
