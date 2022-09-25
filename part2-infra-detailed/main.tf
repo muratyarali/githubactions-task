@@ -149,11 +149,11 @@ resource "aws_eks_node_group" "worker-node-group" {
   node_group_name = "devopsthehardway-workernodes"
   node_role_arn   = aws_iam_role.workernodes.arn
   subnet_ids      = [element(module.vpc.public_subnets, 0), element(module.vpc.public_subnets, 0)]
-  instance_types  = ["t2.micro"]
+  instance_types  = ["t3a.medium"]
 
   scaling_config {
     desired_size = 1
-    max_size     = 1
+    max_size     = 2
     min_size     = 1
   }
 
