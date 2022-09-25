@@ -1,4 +1,4 @@
-name: ci
+name: Create Images and Deploy
 
 on:
   # push:
