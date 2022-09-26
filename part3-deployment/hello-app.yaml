@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world
+  name: hello
 spec:
   selector:
     matchLabels:
-      name: hello
+      name: hello-world
   replicas: 2
   template:
     metadata:
