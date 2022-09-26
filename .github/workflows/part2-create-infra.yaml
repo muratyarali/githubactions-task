@@ -46,4 +46,4 @@ jobs:
         id: apply
         run: |
           terraform apply -auto-approve
-          sleep 10
+          sleep 120

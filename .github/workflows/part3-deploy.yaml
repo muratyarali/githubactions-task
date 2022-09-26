@@ -51,7 +51,7 @@ jobs:
       - name: Install ingress-controller
         run: |
           kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
-          sleep 180
+          sleep 120
 
       - name: Deploy Image to Amazon EKS
         run: |
