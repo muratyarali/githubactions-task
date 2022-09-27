@@ -3,7 +3,7 @@ name: Create Images
 on:
   # push:
   #   paths:
-  #     - 'part1-src/**'
+  #     - 'part2-src/**'
   #   branches:
   #     - main
   # pull_request:

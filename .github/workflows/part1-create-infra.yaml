@@ -1,9 +1,9 @@
 name: Create-Infra
 
 on:
-  # push:
-  #   paths:
-  #     - 'part2-infra-detailed/**'
+  push:
+    paths:
+      - 'part1-infra-detailed/**'
   workflow_dispatch:
 
 env:
@@ -11,7 +11,7 @@ env:
 
 defaults:
   run:
-    working-directory: ./part2-infra-detailed/
+    working-directory: ./part1-infra-detailed/
 
 jobs:
   build:
