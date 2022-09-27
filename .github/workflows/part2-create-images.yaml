@@ -13,7 +13,6 @@ on:
 
 env:
   IMG_VERSION: v1.0.1
-  CLUSTER_NAME: devopsthehardway-cluster   # It has to be same with aws_eks_cluster name in /part1-infra-detailed/main.tf
 
 jobs:
   build-hello-app:

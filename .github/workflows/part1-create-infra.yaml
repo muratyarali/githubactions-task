@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  BUCKET_NAME: terraform-up-and-running-state-nax   # It has to be same with bucket name in /part2-infra-detailed/backent-tf/main.tf
+  BUCKET_NAME: terraform-up-and-running-state-nax   # It has to be same with bucket name in /part1-infra-detailed/backent-tf/main.tf
 
 defaults:
   run:

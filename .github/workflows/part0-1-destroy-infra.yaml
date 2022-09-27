@@ -8,7 +8,7 @@ env:
 
 defaults:
   run:
-    working-directory: ./part2-infra-detailed/
+    working-directory: ./part1-infra-detailed/
 
 jobs:
   destroy_workspace:
