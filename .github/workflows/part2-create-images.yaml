@@ -1,11 +1,11 @@
 name: Create Images
 
 on:
-  # push:
-  #   paths:
-  #     - 'part2-src/**'
-  #   branches:
-  #     - main
+  push:
+    paths:
+      - 'part2-src/**'
+    branches:
+      - main
   # pull_request:
   #   branches:
   #     - main
