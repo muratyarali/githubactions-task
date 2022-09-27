@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 env:
-  CLUSTER_NAME: devopsthehardway-cluster   # It has to be same with aws_eks_cluster name in /part2-infra-detailed/main.tf
+  CLUSTER_NAME: devopsthehardway-cluster   # It has to be same with aws_eks_cluster name in /part1-infra-detailed/main.tf
 
 jobs:
   deploy-eks-cluster:
