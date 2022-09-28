@@ -1,15 +1,15 @@
 name: Deploy to EKS CLuster
 
 on:
-  workflow_run:
-    workflows: [Create Images]
-    types:
-      - completed
-  push:
-    paths:
-      - 'part3-deployment/**'
-    branches:
-      - main
+  # workflow_run:
+  #   workflows: [Create Images]
+  #   types:
+  #     - completed
+  # push:
+  #   paths:
+  #     - 'part3-deployment/**'
+  #   branches:
+  #     - main
   # pull_request:
   #   branches:
   #     - main

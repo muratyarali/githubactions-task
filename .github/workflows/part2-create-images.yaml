@@ -1,18 +1,18 @@
 name: Create Images
 
 on:
-  push:
-    paths:
-      - 'part2-src/**'
-    branches:
-      - main
+  # push:
+  #   paths:
+  #     - 'part2-src/**'
+  #   branches:
+  #     - main
   # pull_request:
   #   branches:
   #     - main
   workflow_dispatch:
 
 env:
-  IMG_VERSION: v1.0.1
+  IMG_VERSION: v1.0.0
 
 jobs:
   build-hello-app:
