@@ -1,0 +1,22 @@
+name: GH Demo
+
+on:
+  push:
+
+jobs:
+  demo:
+    permissions:
+      id-token: write
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Secrets
+        id: secrets
+        uses: hashicorp/vault-action@v2.4.0
+        with:
+          url: ${{ secrets.VAULT_ADDR }}
+          role: gh-demo
+          method: jwt
+          path: gh-actions
+          secrets: |
+            secret/data/gh-demo demo_secret
