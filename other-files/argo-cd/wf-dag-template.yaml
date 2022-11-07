@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  name: wf-dag-template
+spec:
+  entrypoint: dag-template
+  templates: 
+  - name: dag-template
+    dag:
+      tasks:
+      - name: Task1
+        template: task-template
+      - name: Task2
+        template: task-template
+        dependencies: [Task1]
+      - name: Task3
+        template: task-template
+        dependencies: [Task1]
+      - name: Task4
+        template: task-template
+        dependencies: [Task2, Task3]
+
+  - name: task-template
+    script:
+      image: python:3.8-slim
+      command: [python]
+      source: |
+        print("Task executed")

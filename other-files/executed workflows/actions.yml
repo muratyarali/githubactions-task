@@ -1,0 +1,66 @@
+name: Actions Workflow
+
+# on: [push, pull_request]
+
+on:
+  pull_request:
+    branches:
+      - main
+      - 'feature/*' # matches feature/featA, feature/featB, doesnt match feature/feat/A
+      - 'feature/**'
+      - '!feature/featC' # dismatch with that branch
+    tags:
+      - v1.*
+    paths:
+      - '**.js'
+    # paths-ignore:
+    #   - 'docs/**'
+    # branches-ignore:
+    #   - dev # matches all brances except dev
+  # pull_request:
+  #   branches:
+  #     - main
+  # # repository_dispatch
+    # types: [build]
+  # schedule:
+  #   - cron: "0/5 * * * *"
+  #   - cron: "0/6 * * * *"
+  # push:
+  # pull_request:
+  #   types: [closed, assigned, opened, reopened]
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: payload
+        run: echo ${{ github.event.client_payload.env }}
+
+      - name: List files
+        run: |
+          pwd
+          ls -al
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+          # git clone git@github:$GITHUB_REPOSITORY
+          # git checkout $GITHUB_SHA
+
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: List files
+        run: |
+          pwd
+          ls -al
+
+      - name: Simple JS Action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: Murat
+      
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}"
